@@ -1,21 +1,8 @@
 import { useState } from "react";
-import { addDoc, collection } from "firestorage";
 
-function CreatePosts() {
-  const [posts, setPosts] = useState([]);
+function CreatePosts({ newSecret, posts }) {
   const [title, setTitle] = useState("");
   const [secret, setSecret] = useState("");
-
-  const newSecret = () => {
-    const date = new Date();
-    const newPost = addDoc(collection("FilthySecrets"), {
-      title: title,
-      description: secret,
-      date: date,
-    });
-
-    setPosts([...posts, newPost]);
-  };
 
   return (
     <>
@@ -24,8 +11,7 @@ function CreatePosts() {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            newSecret();
-            console.log(posts);
+            newSecret(title, secret);
           }}
         >
           <label>

@@ -1,5 +1,4 @@
 import SeePosts from "./SeePosts.js";
-import CreatePosts from "./CreatePosts.js";
 
 function SecretLibrary() {
   return (
@@ -10,7 +9,6 @@ function SecretLibrary() {
         ashaming secrets. Ugh.
       </p>
       <SeePosts />
-      <CreatePosts />
     </>
   );
 }
